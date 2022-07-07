@@ -7,10 +7,14 @@
     },
     "cSpell.words": [
         "followup",
+        "levelname",
         "lmrun",
         "ondelete",
         "onupdate",
+        "primaryjoin",
+        "pyup",
         "selectinload",
+        "sessionmaker",
         "sqlalchemy",
         "TINYINT"
     ],
