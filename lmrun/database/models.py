@@ -149,4 +149,3 @@ class Games(Base):
     green3_status = relationship('PropertyStatus', primaryjoin='Games.green3 == PropertyStatus.id')
     darkblue1_status = relationship('PropertyStatus', primaryjoin='Games.darkblue1 == PropertyStatus.id')
     darkblue2_status = relationship('PropertyStatus', primaryjoin='Games.darkblue2 == PropertyStatus.id')
-

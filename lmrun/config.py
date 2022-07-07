@@ -2,14 +2,14 @@ from pathlib import Path
 import environs
 import logging
 import sys
-##################
-### Predefined ###
-##################
+##############
+# Predefined #
+##############
 
 
-###################
-### Environment ###
-###################
+###############
+# Environment #
+###############
 
 environment_file = Path(Path().absolute() / '.env')
 
