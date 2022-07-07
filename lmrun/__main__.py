@@ -8,7 +8,7 @@ import logging
 import logging
 import sys
 import os
-import pathlib 
+import pathlib
 import argparse
 
 ###########
@@ -18,9 +18,9 @@ from . database import insert_data, create_structure
 from . config import log_level, debug_guilds, discord_token
 from . cogs import NotSetup
 
-#############
-### Async ###
-#############
+#########
+# Async #
+#########
 
 # Create an event loop
 event_loop = asyncio.new_event_loop()
@@ -28,9 +28,9 @@ event_loop = asyncio.new_event_loop()
 # Set the event loop as the default asyncio event loop
 asyncio.set_event_loop(event_loop)
 
-#####################
-### Key Variables ###
-#####################
+#################
+# Key Variables #
+#################
 
 # File locations
 logging_location = pathlib.Path(pathlib.Path(__file__).parent.resolve() / '../logs')
@@ -39,18 +39,18 @@ logging_location = pathlib.Path(pathlib.Path(__file__).parent.resolve() / '../lo
 parser = argparse.ArgumentParser(description='LMRun')
 parser.add_argument('-q', '--run-migration', action=argparse.BooleanOptionalAction)
 
-###############
-### Logging ###
-###############
-# If logging directory does not exist, create it 
-if logging_location.is_dir() == False:
+###########
+# Logging #
+###########
+# If logging directory does not exist, create it
+if logging_location.is_dir() is False:
     os.mkdir(logging_location)
 
 # Add the name of the log file to the variable
 logging_location = pathlib.Path(pathlib.Path(logging_location / 'lmrun.log'))
 
-# If logging file does not exist, create it 
-if logging_location.is_file() == False:
+# If logging file does not exist, create it
+if logging_location.is_file() is False:
     logging_location.touch()
 
 # Set logging config
@@ -71,14 +71,14 @@ logging.getLogger('sqlalchemy.engine').setLevel(getattr(logging, os.getenv('LOG_
 # Info log that the log is starting
 logger.info('Logging starting')
 
-#################
-### Arguments ###
-#################
+#############
+# Arguments #
+#############
 
-#If run_migration argument is set then run the migration
+# If run_migration argument is set then run the migration
 if parser.parse_args().run_migration is True:
     logger.info('Starting database migration!')
-    
+
     logger.info('Creating database structure!')
     event_loop.run_until_complete(create_structure())
 
@@ -88,32 +88,35 @@ if parser.parse_args().run_migration is True:
     logger.info('Database migration complete!')
     sys.exit(0)
 
-###########
-### Bot ###
-###########
+########
+# Bot #
+#######
 
 # Setup intents
 intents = discord.Intents(guilds=True,
-                        messages=True,
-                        reactions=True,
-                        members=True)
+                          messages=True,
+                          reactions=True,
+                          members=True)
 
 # Create an instance of the Discord bot
 bot = discord.Bot(debug_guilds=debug_guilds, intents=intents)
 
 # Load cogs #
 bot.load_extension('lmrun.cogs.administration')
+bot.load_extension('lmrun.cogs.game')
 
-################
-### On Ready ### 
-#################
+
+##############
+# On Ready ###
+##############
 @bot.event
 async def on_ready():
     logging.info(f'{bot.user.name} has connected to Discord!')
 
-#####################################
-### Application Command exception ###
-#####################################
+
+#################################
+# Application Command exception #
+#################################
 @bot.event
 async def on_application_command_error(ctx, exception):
     if isinstance(exception, NotSetup):
@@ -123,7 +126,7 @@ async def on_application_command_error(ctx, exception):
             type(exception), exception, exception.__traceback__, file=sys.stderr)
         await ctx.send(f':confused: An error was raised, ask the bot devs:\n```{exception}```')
 
-#############
-### Start ###
-#############
+#########
+# Start #
+#########
 event_loop.run_until_complete(bot.start(discord_token))
