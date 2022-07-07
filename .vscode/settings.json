@@ -1,0 +1,17 @@
+{
+    "cSpell.language": "en-GB",
+    "files.exclude": {
+        ".vscode": true,
+        "**/__pycache__": true,
+        "**/env": true
+    },
+    "cSpell.words": [
+        "followup",
+        "lmrun",
+        "ondelete",
+        "onupdate",
+        "selectinload",
+        "sqlalchemy",
+        "TINYINT"
+    ]
+}
