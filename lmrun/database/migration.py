@@ -9,9 +9,10 @@ import logging
 from . models import Users, PropertyStatus, PropertyNames, LocalAuthorityDistricts, Locations, Properties, Base
 from . connection import engine, async_session
 
-########################
-### Create Structure ###
-########################
+
+####################
+# Create Structure #
+####################
 async def create_structure():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.drop_all)
@@ -19,9 +20,9 @@ async def create_structure():
         await conn.run_sync(Base.metadata.create_all)
 
 
-###################
-### Insert Data ###
-###################
+###############
+# Insert Data #
+###############
 async def insert_data():
     async with async_session() as session:
 
@@ -32,13 +33,10 @@ async def insert_data():
         session.add(user)
         await session.commit()
 
-        
-    
-
         logger.info("Adding property status")
         property_status_values = [
             PropertyStatus(id=1, value='Not Visited'),
-            PropertyStatus(id=2, value='Visited'), 
+            PropertyStatus(id=2, value='Visited'),
             PropertyStatus(id=3, value='Owned')
         ]
 
@@ -47,37 +45,36 @@ async def insert_data():
 
         logger.info("Adding property names")
         property_names = [
-            PropertyNames(id=1, name="brown1",value=60),
-            PropertyNames(id=2, name="brown2",value=60),
-            PropertyNames(id=3, name="lightblue1",value=100),
-            PropertyNames(id=4, name="lightblue2",value=100),
-            PropertyNames(id=5, name="lightblue3",value=120),
-            PropertyNames(id=6, name="pink1",value=140),
-            PropertyNames(id=7, name="pink2",value=140),
-            PropertyNames(id=8, name="pink3",value=160),
-            PropertyNames(id=9, name="orange1",value=180),
-            PropertyNames(id=10, name="orange2",value=180),
-            PropertyNames(id=11, name="orange3",value=200),
-            PropertyNames(id=12, name="black1",value=200),
-            PropertyNames(id=13, name="black2",value=200),
-            PropertyNames(id=14, name="black3",value=200),
-            PropertyNames(id=15, name="black4",value=200),
-            PropertyNames(id=16, name="red1",value=220),
-            PropertyNames(id=17, name="red2",value=220),
-            PropertyNames(id=18, name="red3",value=240),
-            PropertyNames(id=19, name="yellow1",value=260),
-            PropertyNames(id=20, name="yellow2",value=260),
-            PropertyNames(id=21, name="yellow3",value=280),
-            PropertyNames(id=22, name="green1",value=300),
-            PropertyNames(id=23, name="green2",value=300),
-            PropertyNames(id=24, name="green3",value=320),
-            PropertyNames(id=25, name="darkblue1",value=350),
-            PropertyNames(id=26, name="darkblue2",value=400)
+            PropertyNames(id=1, name="brown1", value=60),
+            PropertyNames(id=2, name="brown2", value=60),
+            PropertyNames(id=3, name="lightblue1", value=100),
+            PropertyNames(id=4, name="lightblue2", value=100),
+            PropertyNames(id=5, name="lightblue3", value=120),
+            PropertyNames(id=6, name="pink1", value=140),
+            PropertyNames(id=7, name="pink2", value=140),
+            PropertyNames(id=8, name="pink3", value=160),
+            PropertyNames(id=9, name="orange1", value=180),
+            PropertyNames(id=10, name="orange2", value=180),
+            PropertyNames(id=11, name="orange3", value=200),
+            PropertyNames(id=12, name="black1", value=200),
+            PropertyNames(id=13, name="black2", value=200),
+            PropertyNames(id=14, name="black3", value=200),
+            PropertyNames(id=15, name="black4", value=200),
+            PropertyNames(id=16, name="red1", value=220),
+            PropertyNames(id=17, name="red2", value=220),
+            PropertyNames(id=18, name="red3", value=240),
+            PropertyNames(id=19, name="yellow1", value=260),
+            PropertyNames(id=20, name="yellow2", value=260),
+            PropertyNames(id=21, name="yellow3", value=280),
+            PropertyNames(id=22, name="green1", value=300),
+            PropertyNames(id=23, name="green2", value=300),
+            PropertyNames(id=24, name="green3", value=320),
+            PropertyNames(id=25, name="darkblue1", value=350),
+            PropertyNames(id=26, name="darkblue2", value=400)
         ]
 
         session.add_all(property_names)
         await session.commit()
-
 
         logger.info("Adding local authority districts")
         local_authority_districts = [
@@ -460,9 +457,8 @@ async def insert_data():
         session.add_all(local_authority_districts)
         await session.commit()
 
-
         logger.info("Adding demo location")
-        location = Locations(name="Thames Ditton", author_id=1, local_authority_id=205, difficulty=1, description="Developer testing location based around London")
+        location = Locations(name="London", author_id=1, local_authority_id=277, difficulty=1, description="Initial location based around the original London Monopoly Properties")
         session.add(location)
         await session.commit()
 
