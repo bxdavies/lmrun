@@ -215,11 +215,13 @@ class RemoveView(discord.ui.View):
 
 class Administration(discord.Cog):
 
+    # Initialize
     def __init__(self, bot):
         self.bot = bot
         self.update_properties_channel = Administration.update_properties_channel
         self.update_leader_board = Administration.update_leader_board
 
+    # Setup command
     @discord.slash_command()
     async def setup(self, interaction):
         """Setup the server for playing Local Monopoly Run"""
@@ -233,11 +235,13 @@ class Administration(discord.Cog):
 
         await interaction.send("Chose a location set!", view=LocationView(options))
 
+    # Remove command
     @discord.slash_command()
     async def remove(self, interaction):
         """Remove LMRun channels, roles and data"""
         await interaction.send("Remove LMRun and all associated data?", view=RemoveView())
 
+    # Add command
     @discord.slash_command()
     async def add(self, interaction):
         """ Add an extra team to the current game """
@@ -292,9 +296,7 @@ class Administration(discord.Cog):
 
         await interaction.response.send_message(f":white_check_mark: Successfully added {new_team_name}!")
 
-    #########
-    # Start #
-    #########
+    # Start command
     @discord.slash_command()
     async def start(self, interaction):
         """Start the game"""
@@ -335,6 +337,7 @@ class Administration(discord.Cog):
         # Respond to slash command
         await interaction.response.send_message(f"Game Started!")
 
+    # Stop command
     @discord.slash_command()
     async def stop(self, interaction):
         """End the current game"""
@@ -376,9 +379,7 @@ class Administration(discord.Cog):
         # Respond to slash command
         await interaction.response.send_message(f"Game Finished!")
 
-    #############################
-    # Update Properties Channel #
-    #############################
+    # Update properties channel task
     @tasks.loop(minutes=2, count=None)
     async def update_properties_channel(self, interaction):
 
@@ -483,9 +484,7 @@ class Administration(discord.Cog):
         await properties_channel.send(embed=green_properties_embed)
         await properties_channel.send(embed=dark_blue_properties_embed)
 
-    #######################
-    # Update Leader Board #
-    #######################
+    # Update leader board task
     @tasks.loop(minutes=2.1, count=None)
     async def update_leader_board(self, interaction):
 
@@ -516,8 +515,6 @@ class Administration(discord.Cog):
         await leader_board_channel.send(embed=leader_board_embed)
 
 
-#########
-# Setup #
-#########
+# Setup
 def setup(bot):
     bot.add_cog(Administration(bot))
