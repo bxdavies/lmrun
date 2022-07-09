@@ -84,15 +84,12 @@ class Properties(Base):
 
 class Games(Base):
     __tablename__ = 'games'
-    __table_args__ = (
-        Index('current_location', 'current_location', 'brown1', 'brown2', 'lightblue1', 'lightblue2', 'lightblue3', 'pink1', 'pink2', 'pink3', 'orange1', 'orange2', 'orange3', 'black1', 'black2', 'black3', 'black4', 'red1', 'red2', 'red3', 'yellow1', 'yellow2', 'yellow3', 'green1', 'green2', 'green3', 'darkblue1', 'darkblue2'),
-    )
 
     id = Column(BIGINT(20), primary_key=True)
     guild_id = Column(ForeignKey('guilds.id', ondelete='CASCADE', onupdate='CASCADE'), nullable=False, index=True)
     team = Column(Text(6), nullable=False)
     money = Column(SMALLINT(6), nullable=False, server_default=text("0"))
-    current_location = Column(ForeignKey('property_names.id', ondelete='CASCADE', onupdate='CASCADE'), nullable=True)
+    current_property_id = Column(ForeignKey('properties.id', ondelete='CASCADE', onupdate='CASCADE'), nullable=True)
     brown1 = Column(ForeignKey('property_status.id', ondelete='CASCADE', onupdate='CASCADE'), nullable=False, index=True, server_default=text("1"))
     brown2 = Column(ForeignKey('property_status.id', ondelete='CASCADE', onupdate='CASCADE'), nullable=False, index=True, server_default=text("1"))
     lightblue1 = Column(ForeignKey('property_status.id', ondelete='CASCADE', onupdate='CASCADE'), nullable=False, index=True, server_default=text("1"))
@@ -120,7 +117,7 @@ class Games(Base):
     darkblue1 = Column(ForeignKey('property_status.id', ondelete='CASCADE', onupdate='CASCADE'), nullable=False, index=True, server_default=text("1"))
     darkblue2 = Column(ForeignKey('property_status.id', ondelete='CASCADE', onupdate='CASCADE'), nullable=False, index=True, server_default=text("1"))
 
-    property = relationship('PropertyNames')
+    current_property = relationship('Properties')
     guild = relationship('Guilds')
 
     brown1_status = relationship('PropertyStatus', primaryjoin='Games.brown1 == PropertyStatus.id')
