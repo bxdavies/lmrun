@@ -6,19 +6,31 @@
         "**/env": true
     },
     "cSpell.words": [
+        "AMBLA",
+        "Asda",
+        "Citadines",
+        "Collecton",
+        "Confectionary",
+        "crossrail",
         "followup",
         "levelname",
         "lmrun",
+        "MDCCLXXXII",
         "ondelete",
         "onupdate",
+        "Ossory",
+        "Picadilly",
         "primaryjoin",
         "pyup",
+        "roadand",
         "selectinload",
         "sessionmaker",
         "sqlalchemy",
-        "TINYINT"
+        "TINYINT",
+        "ULEZ",
+        "Weatherspoon"
     ],
     "python.linting.pycodestyleEnabled": true,
     "python.linting.enabled": true,
-    "python.linting.pycodestyleArgs": ["--max-line-length=200"]
+    "python.linting.pycodestyleArgs": ["--max-line-length=300"]
 }
