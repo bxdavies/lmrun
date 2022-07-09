@@ -1,41 +1,38 @@
 import discord
 
+
 class LMRunError(discord.ApplicationCommandError):
     pass
 
 
-class InvalidPropertyName(LMRunError):
-    def __init__(self, argument):
-        self.argument = argument
-        super().__init__('Property "{}" does not exist.'.format(argument))
-
-
 class NotInTeamChannel(LMRunError):
-    def __init__(self, argument1, argument2):
-        self.argument1 = argument1
-        self.argument2 = argument2
-        super().__init__(f'{argument1} is not equal to {argument2}')
+    def __init__(self, team_role, channel):
+        self.team_role = team_role
+        self.channel = channel
+        super().__init__(f'You must used this command in your team channel. Your team is {team_role} therefore you should be using this command in the channel #{team_role} not in #{channel}')
 
 
-class AlreadyVisted(LMRunError):
-    def __init__(self, argument):
-        self.argument = argument
-        super().__init__(f'You have already visited and answered {argument}, correctly!')
+class AlreadyVisited(LMRunError):
+    def __init__(self, property):
+        self.property = property
+        super().__init__(f'You have already visited and answered {property}, correctly!')
 
 
 class TooManyTeams(LMRunError):
     pass
 
+
 class NotSetup(LMRunError):
     pass
 
-class NotEnoughTeams(LMRunError):
+
+class LMRunAdministratorRoleNotFound(LMRunError):
     pass
 
 
-class MonopolyRunAdministratorRoleNotFound(LMRunError):
+class NoTeamRole(LMRunError):
     pass
 
 
-class DatabaseTableNotFound(LMRunError):
+class TooManyTeamRoles(LMRunError):
     pass
