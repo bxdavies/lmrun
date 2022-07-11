@@ -47,30 +47,32 @@ async def insert_data():
         property_names = [
             PropertyNames(id=1, name="brown1", value=60),
             PropertyNames(id=2, name="brown2", value=60),
-            PropertyNames(id=3, name="lightblue1", value=100),
-            PropertyNames(id=4, name="lightblue2", value=100),
-            PropertyNames(id=5, name="lightblue3", value=120),
-            PropertyNames(id=6, name="pink1", value=140),
-            PropertyNames(id=7, name="pink2", value=140),
-            PropertyNames(id=8, name="pink3", value=160),
-            PropertyNames(id=9, name="orange1", value=180),
-            PropertyNames(id=10, name="orange2", value=180),
-            PropertyNames(id=11, name="orange3", value=200),
-            PropertyNames(id=12, name="black1", value=200),
-            PropertyNames(id=13, name="black2", value=200),
-            PropertyNames(id=14, name="black3", value=200),
-            PropertyNames(id=15, name="black4", value=200),
-            PropertyNames(id=16, name="red1", value=220),
-            PropertyNames(id=17, name="red2", value=220),
-            PropertyNames(id=18, name="red3", value=240),
+            PropertyNames(id=3, name="station1", value=200),
+            PropertyNames(id=4, name="lightblue1", value=100),
+            PropertyNames(id=5, name="lightblue2", value=100),
+            PropertyNames(id=6, name="lightblue3", value=120),
+            PropertyNames(id=7, name="pink1", value=140),
+            PropertyNames(id=8, name="utility1", value=150),
+            PropertyNames(id=9, name="pink2", value=140),
+            PropertyNames(id=10, name="pink3", value=160),
+            PropertyNames(id=11, name="station2", value=200),
+            PropertyNames(id=12, name="orange1", value=180),
+            PropertyNames(id=13, name="orange2", value=180),
+            PropertyNames(id=14, name="orange3", value=200),
+            PropertyNames(id=15, name="red1", value=220),
+            PropertyNames(id=16, name="red2", value=220),
+            PropertyNames(id=17, name="red3", value=240),
+            PropertyNames(id=18, name="station3", value=200),
             PropertyNames(id=19, name="yellow1", value=260),
             PropertyNames(id=20, name="yellow2", value=260),
-            PropertyNames(id=21, name="yellow3", value=280),
-            PropertyNames(id=22, name="green1", value=300),
-            PropertyNames(id=23, name="green2", value=300),
-            PropertyNames(id=24, name="green3", value=320),
-            PropertyNames(id=25, name="darkblue1", value=350),
-            PropertyNames(id=26, name="darkblue2", value=400)
+            PropertyNames(id=21, name="utility2", value=150),
+            PropertyNames(id=22, name="yellow3", value=280),
+            PropertyNames(id=23, name="green1", value=300),
+            PropertyNames(id=24, name="green2", value=300),
+            PropertyNames(id=25, name="green3", value=320),
+            PropertyNames(id=26, name="station4", value=200),
+            PropertyNames(id=27, name="darkblue1", value=350),
+            PropertyNames(id=28, name="darkblue2", value=400)
         ]
 
         session.add_all(property_names)
@@ -481,114 +483,114 @@ async def insert_data():
             Properties(
                 location_id=location.id,
                 property_id=3,
-                name="Angel Islington",
-                question="What colour scooter is parked outside The Angel, Weatherspoon Pub",
-                answer="Red"
-            ),
-            Properties(
-                location_id=location.id,
-                property_id=4,
-                name="Euston Road",
-                question="According to he posters at Friends House, what should one do in turbulent times.",
-                answer="Be a Quaker"
-            ),
-            Properties(
-                location_id=location.id,
-                property_id=5,
-                name="Pentonville Road",
-                question="What kind of people / special need should motorists be wary of, at the crossing on Pentonville Rd",
-                answer="Deaf, Blind people"
-            ),
-            Properties(
-                location_id=location.id,
-                property_id=6,
-                name="Pall Mall",
-                question="How many soldiers are there on the Crimean War Memorial",
-                answer="Three (3)"
-            ),
-            Properties(
-                location_id=location.id,
-                property_id=7,
-                name="Whitehall ",
-                question="What number bus is going past Downing Street ",
-                answer="87"
-            ),
-            Properties(
-                location_id=location.id,
-                property_id=8,
-                name="Northumberland Ave",
-                question="Who laid the stone at Citadines",
-                answer="Edward Prince of Wales"
-            ),
-            Properties(
-                location_id=location.id,
-                property_id=9,
-                name="Bow Street",
-                question="How many columns does the building flying 2 red flags have",
-                answer="Six (6)"
-            ),
-            Properties(
-                location_id=location.id,
-                property_id=10,
-                name="Marlborough Street",
-                question="Who sold out at the London Palladium",
-                answer="Jimmy Buffet"
-            ),
-            Properties(
-                location_id=location.id,
-                property_id=11,
-                name="Vine Street",
-                question="Which company is on the 3rd floor  of One Vine Street",
-                answer="No One - It's Vacant"
-            ),
-            Properties(
-                location_id=location.id,
-                property_id=12,
                 name="London Kings Cross",
                 question="When looking at the entrance from the road, what kind of emergency vehicles are parked outside and how many are there",
                 answer="Police Vans (3)"
             ),
             Properties(
                 location_id=location.id,
-                property_id=13,
-                name="Fenchurch Street Station",
-                question="How many sets of blue doors are there at the main entrance",
-                answer="7"
+                property_id=4,
+                name="Angel Islington",
+                question="What colour scooter is parked outside The Angel, Weatherspoon Pub",
+                answer="Red"
             ),
             Properties(
                 location_id=location.id,
-                property_id=14,
-                name="Liverpool Street",
-                question="What is the name of the construction company working on the crossrail project outside the main entrance",
-                answer="Taylor Woodrow / Laing O'Rourke"
+                property_id=5,
+                name="Euston Road",
+                question="According to he posters at Friends House, what should one do in turbulent times.",
+                answer="Be a Quaker"
             ),
             Properties(
                 location_id=location.id,
-                property_id=15,
+                property_id=6,
+                name="Pentonville Road",
+                question="What kind of people / special need should motorists be wary of, at the crossing on Pentonville Rd",
+                answer="Deaf, Blind people"
+            ),
+            Properties(
+                location_id=location.id,
+                property_id=7,
+                name="Pall Mall",
+                question="How many soldiers are there on the Crimean War Memorial",
+                answer="Three (3)"
+            ),
+            Properties(
+                location_id=location.id,
+                property_id=8,
+                name="Electric Company",
+                question="Question",
+                answer="Answer"
+            ),
+            Properties(
+                location_id=location.id,
+                property_id=9,
+                name="Whitehall ",
+                question="What number bus is going past Downing Street ",
+                answer="87"
+            ),
+            Properties(
+                location_id=location.id,
+                property_id=10,
+                name="Northumberland Ave",
+                question="Who laid the stone at Citadines",
+                answer="Edward Prince of Wales"
+            ),
+            Properties(
+                location_id=location.id,
+                property_id=11,
                 name="Marylebone Station",
                 question="What do the two red signs outside the station say",
                 answer="You have to wear a face covering, unless exempt"
             ),
             Properties(
                 location_id=location.id,
-                property_id=16,
+                property_id=12,
+                name="Bow Street",
+                question="How many columns does the building flying 2 red flags have",
+                answer="Six (6)"
+            ),
+            Properties(
+                location_id=location.id,
+                property_id=13,
+                name="Marlborough Street",
+                question="Who sold out at the London Palladium",
+                answer="Jimmy Buffet"
+            ),
+            Properties(
+                location_id=location.id,
+                property_id=14,
+                name="Vine Street",
+                question="Which company is on the 3rd floor  of One Vine Street",
+                answer="No One - It's Vacant"
+            ),
+            Properties(
+                location_id=location.id,
+                property_id=15,
                 name="The Strand",
                 question="What is showing at the Savoy Theatre",
                 answer="9 to 5"
             ),
             Properties(
                 location_id=location.id,
-                property_id=17,
+                property_id=16,
                 name="Fleet Street",
                 question="What time is it at the Romanian St George church",
                 answer="12:50, Ten to One"
             ),
             Properties(
                 location_id=location.id,
-                property_id=18,
+                property_id=17,
                 name="Trafalgar Square",
                 question="When was Charles James Napier Born",
                 answer="MDCCLXXXII"
+            ),
+            Properties(
+                location_id=location.id,
+                property_id=18,
+                name="Fenchurch Street Station",
+                question="How many sets of blue doors are there at the main entrance",
+                answer="7"
             ),
             Properties(
                 location_id=location.id,
@@ -607,41 +609,55 @@ async def insert_data():
             Properties(
                 location_id=location.id,
                 property_id=21,
+                name="Water Works",
+                question="Question",
+                answer="Answer"
+            ),
+            Properties(
+                location_id=location.id,
+                property_id=22,
                 name="Picadilly",
                 question="On the steps of a famous, loving monument a pair of seemingly identical twins are sitting down for a romantic spot of lunch.  But where did they buy it from",
                 answer="Tesco"
             ),
             Properties(
                 location_id=location.id,
-                property_id=22,
+                property_id=23,
                 name="Regent Street",
                 question="On which floors of the famous London toy store are the Noble Collecton",
                 answer="Fourth and Lower Ground Floors"
             ),
             Properties(
                 location_id=location.id,
-                property_id=23,
+                property_id=24,
                 name="Oxford Street",
                 question="What is written in the window of the shop is across the road from Oxford Circus on Oxford Street",
                 answer="Top Shop-\"The Ones We Love\""
             ),
             Properties(
                 location_id=location.id,
-                property_id=24,
+                property_id=25,
                 name="New Bond Street",
                 question="Who made the horse and rider where New meets Old.",
                 answer="Elizabeth Frink"
             ),
             Properties(
                 location_id=location.id,
-                property_id=25,
+                property_id=26,
+                name="Liverpool Street",
+                question="What is the name of the construction company working on the crossrail project outside the main entrance",
+                answer="Taylor Woodrow / Laing O'Rourke"
+            ),
+            Properties(
+                location_id=location.id,
+                property_id=27,
                 name="Park Lane",
                 question="What is the four letter code for the Congestion Charge Zone starting in this area.  And how far is it.",
                 answer="ULEZ (25yds)"
             ),
             Properties(
                 location_id=location.id,
-                property_id=26,
+                property_id=28,
                 name="Mayfair",
                 question="What Boats Can You Buy near here, and what is the phone number for the shop.",
                 answer="Sunseeker, 0207 4933441, 07774 720652 (Davies St / Grosvenor St)"
