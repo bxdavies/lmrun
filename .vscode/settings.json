@@ -13,6 +13,7 @@
         "Confectionary",
         "crossrail",
         "followup",
+        "joinedload",
         "levelname",
         "lmrun",
         "MDCCLXXXII",
@@ -27,10 +28,16 @@
         "sessionmaker",
         "sqlalchemy",
         "TINYINT",
+        "tophat",
         "ULEZ",
         "Weatherspoon"
     ],
     "python.linting.pycodestyleEnabled": true,
     "python.linting.enabled": true,
-    "python.linting.pycodestyleArgs": ["--max-line-length=300"]
+    "python.linting.pycodestyleArgs": ["--max-line-length=300"],
+    "autoDocstring.docstringFormat": "numpy",
+    "autoDocstring.includeExtendedSummary": true,
+    "autoDocstring.guessTypes": true,
+    "autoDocstring.startOnNewLine": true,
+    "autoDocstring.quoteStyle": "'''"
 }
