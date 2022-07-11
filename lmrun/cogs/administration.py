@@ -200,7 +200,7 @@ class RemoveView(discord.ui.View):
             games = games_query.scalars().all()
 
             for game in games:
-                session.delete(game)
+                await session.delete(game)
 
             await session.commit()
             await session.delete(guild)
